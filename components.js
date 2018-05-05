@@ -14,42 +14,32 @@ const App = ({ui, data}) => {
   )
 }
 
-const Layout = (...children) => {
-  return `
-    <div class="layout">${children.join('')}</>
-  `
-}
+const Layout = (...children) => `
+  <div class="layout">${children.join('')}</>
+`
 
-const TopMenu = () => {
-  return `
-    <div class="top_menu"></div>
-  `
-}
+const TopMenu = () => `
+  <div class="top_menu"></div>
+`
 
-const Workspace = (...children) => {
-  return `
+const Workspace = (...children) => `
   <div class="workspace">${children.join('')}</div>
-  `
-}
+`
 
-const Footer = () => {
-  return `
+const Footer = () => `
   <div class="footer"></div>
-  `
-}
+`
 
-const FoldersList = (folders, selectedFolderId) => {
-  return `
-    <div class="folders">
-      <ul class="folders_list"/>${
-        folders.length > 0
-          ? folders.map(folder => Folder(folder, folder.id === selectedFolderId)).join('')
-          : 'Please add your first folder'
-      }</ul>
-      <button onclick="Actions.addFolder()">Add folder</button>
-    </div>
-  `
-}
+const FoldersList = (folders, selectedFolderId) => `
+  <div class="folders">
+    <ul class="folders_list"/>${
+      folders.length > 0
+        ? folders.map(folder => Folder(folder, folder.id === selectedFolderId)).join('')
+        : 'Please add your first folder'
+    }</ul>
+    <button onclick="Actions.addFolder()">Add folder</button>
+  </div>
+`
 
 const NotesList = (allNotes, selectedFolderId, selectedNoteId) => {
   if (selectedFolderId) {
@@ -70,25 +60,21 @@ const NotesList = (allNotes, selectedFolderId, selectedNoteId) => {
   }
 }
 
-const Folder = (folder, shouldSelectFolder) => {
-  return `<div class="folder ${shouldSelectFolder ? ' is-selected' : ''}" onclick="Actions.selectFolder(${folder.id})">${folder.title}</div>`
-}
+const Folder = (folder, shouldSelectFolder) => `
+  <div class="folder ${shouldSelectFolder ? ' is-selected' : ''}" onclick="Actions.selectFolder(${folder.id})">${folder.title}</div>
+`
 
-const Note = (note, shouldSelectNote) => {
-  return `<div class="note ${shouldSelectNote ? ' is-selected' : ''}" onclick="Actions.selectNote(${note.id})">${note.title}</div>`
-}
+const Note = (note, shouldSelectNote) => `
+  <div class="note ${shouldSelectNote ? ' is-selected' : ''}" onclick="Actions.selectNote(${note.id})">${note.title}</div>
+`
 
-const SelectedNote = (note) => {
-  return `
-    <div class="selected_note">${
-      note ? NoteText(note) : '<b>Please select note</b>'
-    }</div>
-  `
-}
+const SelectedNote = (note) => `
+  <div class="selected_note">${
+    note ? NoteText(note) : '<b>Please select note</b>'
+  }</div>
+`
 
-const NoteText = (note) => {
-  return `
-    <h1>${note.title}</h1>
-    <p class="note-text">${note.text}</p>
-  `
-}
+const NoteText = (note) => `
+  <h1>${note.title}</h1>
+  <p class="note-text">${note.text}</p>
+`
