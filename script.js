@@ -10,13 +10,12 @@ let state = JSON.parse(localStorage.getItem('notes')) || {
 }
 
 Actions = createActions(state, {afterAction: () => {
-  redrawEverything(state)
+  render(state)
   localStorage.setItem('notes', JSON.stringify(state))
 }})
 
-const redrawEverything = () => {
-  var appHtml = App(state)
-  document.body.innerHTML = appHtml
+const render = () => {
+  document.body.innerHTML = App(state)
 }
 
-redrawEverything()
+render()
