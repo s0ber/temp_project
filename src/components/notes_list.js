@@ -7,7 +7,7 @@ const NotesList = (allNotes, selectedFolderId, selectedNoteId) => {
     return `
       <div class="notes"/>
         <ul class="notes_list">${
-            notes.length > 0
+          notes.length > 0
             ? notes.map(note => Note(note, note.id === selectedNoteId)).join('')
             : 'Please add your first note in this folder'
         }</ul>
