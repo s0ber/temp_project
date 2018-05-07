@@ -8,8 +8,7 @@ import Footer from './footer.js'
 
 const App = ({ui, data}) => {
   const {selectedFolderId, selectedNoteId} = ui
-  const selectedFolder = selectedFolderId ? data.folders.find(folder => folder.id === selectedFolderId) : null
-  const selectedNote = selectedFolder && selectedNoteId ? data.notes.find(note => note.id === selectedNoteId) : null
+  const selectedNote = selectedNoteId ? data.notes.find(note => note.id === selectedNoteId) : null
 
   return Layout(
     TopMenu(),
