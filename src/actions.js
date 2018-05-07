@@ -1,4 +1,4 @@
-const createActions = (state, {afterAction}) => {
+export default (state, {afterAction}) => {
   return {
     addFolder: (e) => {
       const foldersNumber = state.data.folders.length
