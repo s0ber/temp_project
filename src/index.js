@@ -1,4 +1,7 @@
-let state = JSON.parse(localStorage.getItem('notes')) || {
+import createActions from './actions.js'
+import App from './components/app.js'
+
+const state = JSON.parse(localStorage.getItem('notes')) || {
   data: {
     folders: [],
     notes: []
@@ -9,7 +12,7 @@ let state = JSON.parse(localStorage.getItem('notes')) || {
   }
 }
 
-Actions = createActions(state, {afterAction: () => {
+window.Actions = createActions(state, {afterAction: () => {
   render(state)
   localStorage.setItem('notes', JSON.stringify(state))
 }})
