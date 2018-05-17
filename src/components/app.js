@@ -1,23 +1,40 @@
-import Layout from './layout.js'
-import TopMenu from './top_menu.js'
-import Workspace from './workspace.js'
-import FoldersList from './folders_list.js'
-import NotesList from './notes_list.js'
-import SelectedNote from './selected_note.js'
-import Footer from './footer.js'
-
-const App = ({ui, data}) => {
-  const {selectedFolderId, selectedNoteId} = ui
-  const selectedNote = selectedNoteId ? data.notes.find(note => note.id === selectedNoteId) : null
-
+export default (state) => {
   return Layout(
-    TopMenu(),
-    Workspace(
-      FoldersList(data.folders, selectedFolderId),
-      NotesList(data.notes, selectedFolderId, selectedNoteId),
-      SelectedNote(selectedNote)
-    ),
-    Footer()
+    ChordsGame(state)
   )
 }
-export default App
+
+const Layout = (...children) => `
+  <div class="layout">${children.join('')}</>
+`
+
+const ChordsGame = ({key, randomChord}) => {
+  return key
+    ? RandomChord(randomChord)
+    : SelectKeyForm()
+}
+
+const RandomChord = (randomChord) => {
+  setTimeout(Actions.updateChord, 2000)
+  return `<div class="random_chord">${randomChord}</div>`
+}
+
+const SelectKeyForm = (key) => `
+  <form>
+    <div>
+      ${BASIC_KEYS.map(keyOption => KeyOption(keyOption, key)).join('')}
+    </div>
+    <button onclick="Actions.selectKey(this)" type="button">Select Key</button>
+  </form>
+`
+
+const KeyOption = (keyOption, selectedKey) => `
+  <label class="key_option">
+    <input type="radio" name="key" value="${keyOption}" ${ keyOption === selectedKey ? 'checked' : '' } />
+    ${keyOption}
+  </label>
+`
+
+const SelectKeyButton = (buttonText) => `
+  <div class="select_key_button">${buttonText}</div>
+`
