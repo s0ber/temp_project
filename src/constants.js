@@ -42,7 +42,11 @@ export const INVERSIONS = {
   triads: [
     'Root', '1st', '2nd'
   ],
-  sevenths: [
+  seventh: [
     'Root', '1st', '2nd', '3rd'
   ]
 }
+
+export const TIMEOUT_OPTIONS = [
+  1000, 2000, 3000, 4000, 5000, 6000, 7000
+]
