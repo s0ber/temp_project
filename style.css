@@ -69,3 +69,88 @@ table {
 .folder.is-selected, .note.is-selected {
   font-weight: bold;
 }
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.layout {
+  position: absolute;
+  margin: 0;
+  padding: 30px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  font-family: Helvetica Neue;
+}
+
+.random_chord {
+  color: #333;
+  font-size: 60px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.random_chord span.seventh_chord_type {
+  display: inline-block;
+  transform: translateY(-12px);
+  font-size: 48px;
+}
+
+.random_chord span.inversion {
+  font-size: 48px;
+  font-weight: normal;
+}
+
+.setting {
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.key_option,
+.timeout_option,
+.seventh_toggler,
+.inversion_option {
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 36px;
+  padding: 5px;
+}
+
+.timeout_option,
+.seventh_toggler {
+  font-size: 24px;
+}
+
+.key_option.is-selected,
+.timeout_option.is-selected,
+.seventh_toggler.is-selected,
+.inversion_option.is-selected {
+  color: #fff;
+}
+
+.key_option.is-selected {
+  background-color: green;
+}
+
+.timeout_option.is-selected {
+  background-color: blue;
+}
+
+.seventh_toggler.is-selected {
+  background-color: black;
+}
+
+.inversion_option.is-selected {
+  background-color: orange;
+}
+
+button {
+  cursor: pointer;
+}
